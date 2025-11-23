@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                 return const SizedBox.shrink();
               },
             ),
-            UIHelper.verticalSpace(2),
+            UIHelper.verticalSpace(15),
           ],
         ),
       ),
