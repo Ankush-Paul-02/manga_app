@@ -6,11 +6,23 @@ import 'package:manga_app/features/home/presentation/pages/widgets/now_card.dart
 import 'package:sizer/sizer.dart';
 import '../../../../core/utils/app_utits.dart';
 import '../bloc/manga_bloc.dart';
+import '../bloc/manga_event.dart';
 import '../bloc/manga_state.dart';
 import 'widgets/overlap_carousal.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<MangaBloc>().add(LoadMangaEvent(10));
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/manga_model.dart';
 
 abstract class MangaRemoteDataSource {
-  Future<List<MangaModel>> fetchLatestMangas();
+  Future<List<MangaModel>> fetchLatestMangas(int limit);
 }
 
 class MangaRemoteDataSourceImpl implements MangaRemoteDataSource {
@@ -12,9 +12,9 @@ class MangaRemoteDataSourceImpl implements MangaRemoteDataSource {
   MangaRemoteDataSourceImpl(this.baseUrl);
 
   @override
-  Future<List<MangaModel>> fetchLatestMangas() async {
+  Future<List<MangaModel>> fetchLatestMangas(int limit) async {
     final uri = Uri.parse(
-      "$baseUrl?limit=10"
+      "$baseUrl?limit=$limit"
       "&includedTagsMode=AND"
       "&excludedTagsMode=OR"
       "&contentRating[]=safe"

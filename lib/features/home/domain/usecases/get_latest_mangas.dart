@@ -6,7 +6,7 @@ class GetLatestManga {
 
   GetLatestManga(this.repository);
 
-  Future<List<MangaEntity>> call() async {
-    return await repository.getLatestMangas();
+  Future<List<MangaEntity>> call(int limit) async {
+    return await repository.getLatestMangas(limit);
   }
 }

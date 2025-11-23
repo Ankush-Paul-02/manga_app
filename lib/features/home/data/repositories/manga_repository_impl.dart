@@ -8,8 +8,8 @@ class MangaRepositoryImpl implements MangaRepository {
   MangaRepositoryImpl(this.remoteDataSource);
 
   @override
-  Future<List<MangaEntity>> getLatestMangas() async {
-    final models = await remoteDataSource.fetchLatestMangas();
+  Future<List<MangaEntity>> getLatestMangas(int limit) async {
+    final models = await remoteDataSource.fetchLatestMangas(limit);
     return models; // models extend entity
   }
 }

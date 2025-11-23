@@ -1,5 +1,5 @@
 import '../entities/manga_entity.dart';
 
 abstract class MangaRepository {
-  Future<List<MangaEntity>> getLatestMangas();
+  Future<List<MangaEntity>> getLatestMangas(int limit);
 }

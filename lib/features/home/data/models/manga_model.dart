@@ -62,7 +62,10 @@ class MangaModel extends MangaEntity {
   ) async {
     if (coverArtId.isEmpty) return null;
 
-    final apiBase = dotenv.env['MANGA_API_BASE']!;
+    final apiBaseRaw = dotenv.env['MANGA_API_BASE']!;
+    final apiBase = apiBaseRaw.endsWith('/manga')
+        ? apiBaseRaw.substring(0, apiBaseRaw.length - '/manga'.length)
+        : apiBaseRaw;
     final coverBase = dotenv.env['MANGA_COVER_BASE']!;
 
     final url = "$apiBase/cover/$coverArtId";

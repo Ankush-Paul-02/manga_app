@@ -23,9 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => sl<MangaBloc>()..add(LoadMangaEvent())),
-      ],
+      providers: [BlocProvider(create: (_) => sl<MangaBloc>())],
       child: Sizer(
         builder: (_, _, _) => MaterialApp(
           debugShowCheckedModeBanner: false,

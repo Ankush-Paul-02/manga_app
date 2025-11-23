@@ -5,4 +5,7 @@ abstract class MangaEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class LoadMangaEvent extends MangaEvent {}
+class LoadMangaEvent extends MangaEvent {
+  final int limit;
+  LoadMangaEvent(this.limit);
+}

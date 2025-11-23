@@ -13,7 +13,7 @@ class MangaBloc extends Bloc<MangaEvent, MangaState> {
   Future<void> _onLoad(LoadMangaEvent event, Emitter<MangaState> emit) async {
     emit(MangaLoading());
     try {
-      final data = await getLatestManga();
+      final data = await getLatestManga(event.limit);
       emit(MangaLoaded(data));
     } catch (e) {
       emit(MangaError(e.toString()));
